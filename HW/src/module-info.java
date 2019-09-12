@@ -1,0 +1,3 @@
+module HW {
+	requires junit;
+}
