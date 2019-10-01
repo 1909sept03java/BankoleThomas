@@ -1,0 +1,61 @@
+<div>
+        <span>Interpolation:</span> 
+        <br>
+        <p>first name: {{user.firstname}}</p>
+        <p>last name: {{user.lastname}}</p>
+        <p>email: {{user.email}}</p>
+    </div>
+    <br>
+    <div>
+        <span>Event Binding:</span>
+        <p>{{counter}}</p>
+        <button (click)="incrementCounter()">increment</button>
+    </div>
+    <br>
+    <div>
+        <span>Property Binding:</span>
+        <p [ngStyle]="objectStyle" (click)="toggleStyles()">click to toggle styles</p>
+    </div>
+    <br>
+    <!-- need to import FormsModule in app.module.ts for NgModel -->
+    <div>
+        <span>Input for Two-Way Binding:</span>
+        <br>
+        <input [(ngModel)]="user.firstname" placeholder="first name">
+        <br>
+        <input [(ngModel)]="user.lastname" placeholder="last name">
+        <br>
+        <input [(ngModel)]="user.email" placeholder="email">
+    </div>
+    <div ng-app="live24uApp">
+    <script>
+    angular.module('live24uApp',[])
+    .controller('palindromeCtrl', ['$scope', function($scope){
+        $scope.text = 'A man, a plan, a canal,  Panama!';
+
+        $scope.submit = function(){
+            var str = $scope.text.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "");
+            $scope.isPalindrome = checkPalindrome(str);
+        };
+        function checkPalindrome(args){
+            if(!args) return false;
+            var i = args.length-1;
+            var k =0;
+            while (i > k){
+                if (args.charAt(k++)!==args.charAt(i--)) return false;
+            }
+            return true;
+            }
+    }]);    
+    </script>
+    <h2>AngularJS Palindrome Number program</h2>
+    <form ng-submit="submit()" ng-controller ="palindromeCtrl">
+        <div class="live24u form-group">
+            <label for="text">Enter text and hit enter</label>
+            <input type="text" class= "form-control" ng-model="text" name="text" id="text"/>
+        </div>
+        <input type ="submit" class= "btn btn-primary" id="submit" value="Submit"/>
+        <hr>
+        <pre>Is Palindrome=<mark>{{isPalindrome}}</mark></pre>
+    </form>
+</div>
