@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="silverback.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body id="emp">
+
+<div class="container">
+<img src="gorillaBG.jpg"  style="width:170px;height:170px;">
+  <h3>SILVERBACK REIMBURSEMENT</h3>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#menu1">Reimbursement Request</a></li>
+    <li><a data-toggle="tab" href="#menu2">Receipt Upload</a></li>
+    <li><a data-toggle="tab" href="#menu3">View Status</a></li>
+    <li><a data-toggle="tab" href="#menu4">Update Info</a></li>
+    <li><a data-toggle="tab" href="#menu5">Log Out</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h2>Employee Home Page</h2>
+  <p>SilverBack Portal is the employees connection to reimbursment no matter the cost, Here an employee can submit there request and </p>
+  <p>Here an employee can submit there request and get paid for the services they used in the name of our company </p>
+    </div>
+    
+    <div id="menu1" class="tab-pane fade">
+      <h3>Reimbursement Form</h3>
+      <p>All we need is your Reimbursement amount to send your request </p>
+      <div class="input-group mb-3">
+ 	<form action="createReim" method="POST">
+  	<div class="input-group-prepend">
+	<input type="text" value="0" name="reimBal"><input
+				type="submit" value="Send Request" />
+		</form>
+  </div>
+		
+</div>
+      
+		
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+			<p>What Receipt do you want to upload?</p>
+			<input type="file" name="fileToUpload">
+			<br/>
+			<input type="submit" value="Submit">
+		</form>
+    </div>
+    
+    <div id="menu3" class="tab-pane fade">
+      <h3>View Status</h3>
+     <div>
+		<button id="getEmployeeInfo" onclick ="getEmployeeInfo()">View Information!</button>
+		<h2 id="info"></h2>
+		<h4 id="employeeId"></h4>
+		<h4 id="employeeEmail"></h4>
+		<h4 id="employeeUsername"></h4>
+		<h4 id="employeePassword"></h4>
+		<h4 id="employeeManagerId"></h4>
+	</div>
+    </div>
+    
+    <div id="menu4" class="tab-pane fade">
+     <h3>Updating Credentials:</h3>
+		<form action="updateCreds" method="POST">
+			<input type="text" placeholder="username" name="username" />
+			<br>
+			<input type="password" name="password" />
+			<br>
+			<input type="submit" value="Update Creds" />
+		</form>
+	</div>
+    </div>
+   
+    <div id="menu5" class="tab-pane fade">
+      <h3>Log Out Session ?</h3>
+       <form action="logout" method="get">
+      <input type="submit" value="Log Out"/>
+      </form>
+    </div>
+    
+  
+
+
+</body>
+<script src="Employee.js"></script>
+</html>

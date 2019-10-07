@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+
+.display {
+	
+	text-align: center;
+	padding: 5rem;
+	margin: 5rem;
+}
+body{
+	
+	background-position: 50% 50%; 
+	background-repeat: no-repeat;
+	background-color: black;
+}
+.pos{
+	
+	
+}
